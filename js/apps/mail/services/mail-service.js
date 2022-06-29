@@ -10,6 +10,7 @@ export const mailService = {
   remove,
   save,
   get,
+  getEmptyEmail,
 };
 
 function query() {
@@ -27,6 +28,10 @@ function save(email) {
 
 function get(emailId) {
   return storageService.get(EMAILS_KEY, emailId);
+}
+
+function getEmptyEmail() {
+  return { id: "", subject: "", body: "" };
 }
 
 function _createEmails() {
