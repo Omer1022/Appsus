@@ -27,7 +27,7 @@ a {
 /* BOOK LIST */
 
 .book-list ul {
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: center;
   list-style: none;
   margin: 0;
