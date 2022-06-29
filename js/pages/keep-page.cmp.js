@@ -1,14 +1,17 @@
+import noteIndex from "../apps/keep/pages/note-index.cmp.js";
+
 export default {
   template: `
-     <section class="keep-page app-main">
-        <h3>Note Page</h3>
-     </section>
+      <note-index />
     `,
   data() {
     return {};
   },
-  created() {},
+  components: {
+    noteIndex
+  },
+  created() { },
   methods: {},
   computed: {},
-  unmounted() {},
+  unmounted() { },
 };
