@@ -1,0 +1,12 @@
+/* BASE */
+@import "./parts/base.css";
+@import "./parts//fonts.css";
+@import "./parts/helpers.css";
+
+/* APPS */
+@import "./apps/book/book-preview.css";
+@import "./apps/keep/note-preview.css";
+@import "./apps/mail/mail-preview.css";
+
+/* CMPS */
+@import "./cmps/app-home.css";
