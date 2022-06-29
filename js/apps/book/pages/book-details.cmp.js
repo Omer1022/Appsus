@@ -25,7 +25,6 @@ export default {
   created() {
     const id = this.$route.params.bookId;
     bookService.get(id).then((book) => (this.book = book));
-    console.log("id", id);
   },
   methods: {},
   computed: {},
