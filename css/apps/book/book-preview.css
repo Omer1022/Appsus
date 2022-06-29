@@ -18,7 +18,7 @@
 
 a {
   text-decoration: none;
-  color: lightseagreen;
+  color: rgb(0, 0, 0);
   font-family: sans-serif;
   cursor: pointer;
   margin: 10px;
@@ -28,7 +28,6 @@ a {
 
 .book-list ul {
   color: white;
-  background-color: black;
   text-align: center;
   list-style: none;
   margin: 0;
@@ -82,5 +81,10 @@ p {
 }
 
 .router-link-exact-active {
-  color: navy;
+  color: rgb(255, 255, 255);
+}
+
+button {
+  height: 20px;
+  width: 20px;
 }

@@ -4,9 +4,10 @@ export default {
   <ul>
     <div class="mail-preview">
         <li><input type="checkbox" /></li>
-        <li>{{email.from}}</li>
-        <li>{{email.subject}} - {{email.body}}</li>
+        <router-link :to="'/email/'+email.id">{{email.from}}</router-link>
+        <router-link :to="'/email/'+email.id">{{email.subject}} - {{email.body}}</router-link>
         <li>{{email.sentAt}}</li>
+        <button style="background: url(img/delete.png)" @click="remove(email.id)"></button>
 </div>
 </ul>
       `,

@@ -9,8 +9,6 @@ export default {
             @click="select(email)">
                 <mail-preview :email="email"/>
                 <div class="actions">
-                <button @click="remove(email.id)">X</button>
-                    <router-link :to="'/email/'+email.id">Details</router-link>
                 </div>
             </li>
         </ul>
