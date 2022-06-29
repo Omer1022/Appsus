@@ -5,7 +5,8 @@ export default {
   template: `
  <section class="book-list">
         <ul>
-            <li v-for="book in books" :key="book.id" class="book-preview-container" @click="select(book)">
+            <li v-for="book in books" :key="book.id" class="book-preview-container" 
+            @click="select(book)">
                 <book-preview :book="book"/>
                 <div class="actions">
                 <button @click="remove(book.id)">X</button>

@@ -1,14 +1,14 @@
 export default {
   props: ["email"],
   template: `
-  <table>
-      <tr>
-        <td><input type="checkbox" /></td>
-        <td>{{email.from}}</td>
-        <td><p><strong>{{email.subject}}</strong> - {{email.body}}</p></td>
-        <td>{{email.sentAt}}</td>
-      </tr>
-  </table>
+  <ul>
+    <div class="mail-preview">
+        <li><input type="checkbox" /></li>
+        <li>{{email.from}}</li>
+        <li>{{email.subject}} - {{email.body}}</li>
+        <li>{{email.sentAt}}</li>
+</div>
+</ul>
       `,
   data() {
     return {};

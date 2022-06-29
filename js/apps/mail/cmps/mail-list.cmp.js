@@ -4,9 +4,16 @@ export default {
   props: ["emails"],
   template: `
  <section class="email-list">
-            <p v-for="email in emails" :key="email.id" class="email-preview-container">
+        <ul>
+            <li v-for="email in emails" :key="email.id" class="email-preview-container" 
+            @click="select(email)">
                 <mail-preview :email="email"/>
-</p>
+                <div class="actions">
+                <button @click="remove(email.id)">X</button>
+                    <router-link :to="'/email/'+email.id">Details</router-link>
+                </div>
+            </li>
+        </ul>
     </section>
 `,
   components: {
@@ -16,6 +23,13 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    remove(emailId) {
+      this.$emit("removed", emailId);
+    },
+    select(email) {
+      this.$emit("selected", email);
+    },
+  },
   computed: {},
 };

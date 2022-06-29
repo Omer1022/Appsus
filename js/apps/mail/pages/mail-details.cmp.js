@@ -3,7 +3,9 @@ import { mailService } from "../services/mail-service.js";
 export default {
   template: `
       <section v-if="email" class="email-details app-main">
-          <h4>Email Details</h4>
+          <h1>{{email.subject}}</h1>
+          <p>From - {{email.from}}</p>
+          <p>To - {{email.to}}</p>
           <p>{{email.body}}</p>
           <button @click="$emit('close')">Back To Emails</button>
       </section>

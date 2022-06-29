@@ -1,9 +1,10 @@
 import homePage from "./pages/home-page.cmp.js";
-import mailPage from "./pages/mail-page.cmp.js";
-import keepPage from "./pages/keep-page.cmp.js";
 import bookPage from "./pages/book-page.cmp.js";
 import bookDetails from "./apps/book/pages/book-details.cmp.js";
 import bookEdit from "./apps/book/pages/book-edit.cmp.js";
+import mailPage from "./pages/mail-page.cmp.js";
+import mailDetails from "./apps/mail/pages/mail-details.cmp.js";
+import keepPage from "./pages/keep-page.cmp.js";
 
 const routes = [
   {
@@ -13,6 +14,10 @@ const routes = [
   {
     path: "/mail",
     component: mailPage,
+  },
+  {
+    path: "/email/:emailId",
+    component: mailDetails,
   },
   {
     path: "/keep",

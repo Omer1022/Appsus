@@ -1,4 +1,17 @@
 .app-main {
-  height: 90vh;
   background-color: white;
+}
+
+.email-filter {
+  text-align: center;
+}
+
+.mail-preview {
+  display: inline-block;
+  overflow: hidden;
+}
+
+li {
+  padding: 10px;
+  display: inline;
 }
