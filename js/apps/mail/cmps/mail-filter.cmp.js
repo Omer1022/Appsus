@@ -2,7 +2,7 @@ export default {
   props: ["emails"],
   template: `
      <section class="email-filter">
-     🔍<input type="text" v-model="filterBy.title" @input="filter" placeholder="Search mail">
+     🔍<input type="text" v-model="filterBy.subject" @input="filter" placeholder="Search mail">
      </section>
     `,
   data() {

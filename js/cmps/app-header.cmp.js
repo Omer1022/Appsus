@@ -1,6 +1,7 @@
 export default {
   template: `
       <header class="app-header">
+        Apps Place
         <div class="logo">
           </div>
           <nav class="nav-bar">

@@ -6,7 +6,7 @@ export default {
   template: `
     <section class="mail-page">
       <mail-filter @filtered="filterMail"/>
-      <mail-list :emails="mailsToShow"/>
+      <mail-list @removed="removeEmail" :emails="mailsToShow"/>
   </section>
 `,
   components: {
@@ -23,6 +23,11 @@ export default {
     mailService.query().then((emails) => (this.emails = emails));
   },
   methods: {
+    removeEmail(emailId) {
+      mailService.remove(emailId);
+      const idx = this.emails.findIndex((email) => email.id === emailId);
+      this.emails.splice(idx, 1);
+    },
     filterMail(filterBy) {
       this.filterBy = filterBy;
     },
