@@ -22,9 +22,6 @@ export default {
     return {};
   },
   methods: {
-    remove(emailId) {
-      this.$emit("removed", emailId);
-    },
     select(email) {
       this.$emit("selected", email);
     },
