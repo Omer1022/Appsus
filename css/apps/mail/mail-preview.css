@@ -2,16 +2,84 @@
   background-color: white;
 }
 
+.email-details {
+  margin-left: 170px;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h4 {
+  color: gray;
+  font-size: 20px;
+}
+
+p {
+  font-size: 15px;
+}
+
 .email-filter {
   text-align: center;
 }
 
 .mail-preview {
+  margin-left: 70px;
   display: inline-block;
   overflow: hidden;
+}
+
+.mail-preview:hover {
+  background-color: lightgray;
+}
+
+ul {
+  border-bottom: inset;
 }
 
 li {
   padding: 10px;
   display: inline;
+}
+
+.email-body {
+  color: grey;
+  font-size: 12px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.sidenav a:hover {
+  background-color: lightgray;
+}
+
+.main {
+  margin-left: 160px;
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
 }

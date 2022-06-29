@@ -4,6 +4,13 @@ import mailList from "../apps/mail/cmps/mail-list.cmp.js";
 
 export default {
   template: `
+  <div class="sidenav">
+  <router-link to="/mail/compose">➕ Compose</router-link>
+          <router-link to="/mail">📥 Inbox</router-link>
+          <router-link to="/starred">⭐ Starred</router-link>
+          <router-link to="/sentmail">📨 Sent Mail</router-link>
+          <router-link to="/drafts">📄 Drafts</router-link>
+  </div>
     <section class="mail-page">
       <mail-filter @filtered="filterMail"/>
       <mail-list @removed="removeEmail" :emails="mailsToShow"/>
