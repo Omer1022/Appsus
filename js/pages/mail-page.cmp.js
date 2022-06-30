@@ -16,10 +16,11 @@ export default {
       <mail-list @removed="removeEmail" :emails="mailsToShow"/>
       <div v-if="isModalOpen" class="show-modal">
       <h1 class="modal-header">New Message</h1>
-            To:<input class="to" type="text" />
-            Subject:<input class="subject" type="text" />
-            Body:<input class="body" type="text" />
-            <button class="send-button" v-on:click="addMail">Send</button>
+            From:<input v-model="newFrom" class="from" type="text" />
+            To:<input v-model="newTo" class="to" type="text" />
+            Subject:<input v-model="newSubject" class="subject" type="text" />
+            Body:<input v-model="newBody" class="body" type="text" />
+            <button class="send-button" v-on:click="addEmail">Send</button>
 </div>
   </section>
 `,
@@ -46,12 +47,24 @@ export default {
     filterMail(filterBy) {
       this.filterBy = filterBy;
     },
+    addEmail() {
+      const id = Date.now() % 10000;
+      const newEmail = {
+        id,
+        from: this.newFrom,
+        to: this.newTo,
+        subject: this.newSubject,
+        body: this.newBody,
+        sentAt: Date(),
+      };
+      this.emails.push(newEmail);
+      this.closeModal();
+    },
     showModal() {
       this.isModalOpen = true;
     },
     closeModal() {
       this.isModalOpen = false;
-      this.newNickname = "";
     },
   },
   computed: {
