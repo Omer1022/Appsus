@@ -4,6 +4,7 @@ export default {
   <ul>
     <div class="mail-preview">
         <li><input type="checkbox" /></li>
+        <li>⭐ </li>
         <router-link :to="'/email/'+email.id">
         <strong>
         <li>{{email.from}}</li>

@@ -1,31 +1,4 @@
-.app-main {
-  background-color: white;
-}
-
-.email-details {
-  margin-left: 170px;
-}
-
-h1 {
-  font-size: 30px;
-}
-
-h2 {
-  font-size: 20px;
-}
-
-h4 {
-  color: gray;
-  font-size: 20px;
-}
-
-p {
-  font-size: 15px;
-}
-
-.email-filter {
-  text-align: center;
-}
+/* EMAIL PREVIEW */
 
 .mail-preview {
   margin-left: 70px;
@@ -91,6 +64,41 @@ li {
   border: none;
   float: right;
 }
+
+/* EMAIL FILTER */
+
+.email-filter {
+  text-align: center;
+}
+
+/* EMAIL DETAILS */
+
+.app-main {
+  background-color: white;
+}
+
+.email-details {
+  margin-left: 170px;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h4 {
+  color: gray;
+  font-size: 20px;
+}
+
+p {
+  font-size: 15px;
+}
+
+/* EMAIL MODAL */
 
 .modal-button {
   background-color: white;
