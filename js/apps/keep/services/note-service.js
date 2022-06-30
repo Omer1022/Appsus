@@ -1,6 +1,6 @@
 import { utilService } from './util-service.js';
 import { storageService } from '../../../services/async-storage-service.js';
-const NOTES_KEY = 'notes';
+const NOTES_KEY = 'notesDB';
 
 _createNotes()
 
