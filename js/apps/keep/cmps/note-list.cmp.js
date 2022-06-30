@@ -1,4 +1,7 @@
 import notePreview from "../cmps/note-preview.cmp.js";
+import noteTodos from "./note-todos.cmp.js";
+import noteTxt from "./note-txt.cmp.js";
+import noteImg from "./note-img.cmp.js";
 
 export default {
   props: ["notes"],
@@ -6,8 +9,7 @@ export default {
  <section class="note-list">
         <ul>
             <li v-for="note in notes" :key="note.id" class="note-preview-container">
-    
-              <note-preview :note="note"/>
+            <component :is="note.type" :noteObj="note"> </component>
               <div class="actions">
                        <button @click="remove(note.id)">X</button>
                        <router-link :to="'/note/'+note.id">Details</router-link>
@@ -20,6 +22,9 @@ export default {
 `,
   components: {
     notePreview,
+    noteTodos, 
+    noteImg,
+    noteTxt
   },
 
   data() {

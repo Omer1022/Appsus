@@ -52,7 +52,7 @@ function _createNotes() {
                 type: "note-txt",
                 isPinned: false,
                 info: {
-                    txt: "yo yo yo yo"
+                    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quae maiores molestias tempore quia aperiam assumenda, soluta sunt doloribus inventore alias iusto accusantium quaerat cupiditate repellendus saepe vel, cumque labore rem repellat beatae dolor ducimus perferendis. Saepe, nemo accusamus. Deserunt ducimus ipsum tempore obcaecati voluptas nostrum laborum, rerum, hic distinctio dignissimos sit harum quibusdam ullam eos voluptatum fuga tempora veniam molestias quasi illo. Inventore alias obcaecati nam earum incidunt facere sint eius at quaerat illum doloribus debitis adipisci placeat minima voluptatibus ea cupiditate, consectetur nesciunt minus, repudiandae facilis modi et eum. Laudantium corporis adipisci qui omnis ut, dolorem vel quis." 
                 }
             },
             {

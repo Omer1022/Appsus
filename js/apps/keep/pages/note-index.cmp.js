@@ -5,14 +5,13 @@ import noteFilter from "../cmps/note-filter.cmp.js";
 
 export default {
   template: `
-  <div class = "screen" :class="{selectedNote:selectedNote}" @click="selectedNote = null"></div>
+  <!-- <div class = "screen" :class="{selectedNote:selectedNote}" @click="selectedNote = null"></div> -->
   <section class="note-app">
    
-    <note-filter @filtered="setFilter"/>
+    <!-- <note-filter @filtered="setFilter"/> -->
     <router-link to="/note/edit">Add New note</router-link>
      <note-list :notes="notesToShow"  @removed="removeNote" />
-     <!-- <note-list @selected="selectNote" :notes="notesToShow" /> -->
-    <!-- <note-details v-if="selectedNote"  @close="selectedNote = null" :note="selectedNote" /> -->
+ 
     <note-details />
   </section>
 `,
@@ -46,7 +45,7 @@ export default {
   },
   computed: {
     notesToShow() {
-      console.log('note', this.notes)
+      // console.log('note', this.notes)
 
       var notes = this.notes
       //   if (!this.filterBy) return this.notes
