@@ -1,7 +1,7 @@
 export default {
   props: ["email"],
   template: `
-  <ul>
+      <ul>
     <div class="mail-preview">
         <li><input type="checkbox" /></li>
         <li>⭐ </li>
@@ -13,7 +13,7 @@ export default {
         <li>{{email.sentAt}}</li>
     </strong>
     </router-link>
-</div>
+  </div>
 </ul>
       `,
   data() {

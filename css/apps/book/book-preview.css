@@ -82,4 +82,5 @@ p {
 
 .router-link-exact-active {
   color: red;
+  background-color: lightgray;
 }

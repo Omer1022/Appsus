@@ -7,10 +7,10 @@ export default {
         <ul>
             <li v-for="email in emails" :key="email.id" class="email-preview-container" 
             @click="select(email)">
-                <mail-preview :email="email"/>
-                <div class="actions">
+            <div class="actions">
                 <button class="remove-mail" @click="remove(email.id)"></button>
                 </div>
+                <mail-preview :email="email"/>
             </li>
         </ul>
     </section>
