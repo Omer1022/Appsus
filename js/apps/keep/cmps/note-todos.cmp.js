@@ -1,24 +1,24 @@
+
+import todoList from "./todo-list.cmp.js";
 export default {
-    props: ["noteObj"],
-    template: `
-           <section class="todo-list">
-        <ul class = todo-list>
-            <li v-for="todo in noteObj.info.todos" class=" todo-item" @click="toggleCrossLIne>
-          
-                  
-            
-            </li>
-        </ul>
-    </section>
+  props: ["noteObj"],
+  template: `
+   <h3>{{noteObj.info.label}}</h3>
+  <todo-list :todos="noteObj.info.todos"/>
+     
   `,
-    data() {
-      return {};
-    },
-    methods: {},
-    computed: {
-   
-   
-    }
+  data() {
+    return {};
+  },
+  components:{
+    todoList
+  },
+  methods: {
+  
+  },
+  computed: {
+
+
+  }
 
 }
-    

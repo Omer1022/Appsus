@@ -82,3 +82,6 @@ body .selectedNote.screen {
 .product-details-modal p {
   color: #808080;
 }
+.isDone { 
+  text-decoration: line-through;
+}

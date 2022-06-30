@@ -2,28 +2,31 @@ import { noteService } from "../services/note-service.js";
 import noteList from "../cmps/note-list.cmp.js";
 import noteDetails from "../pages/note-details.cmp.js";
 import noteFilter from "../cmps/note-filter.cmp.js";
+// import noteAdd from "../cmps/note-add.cmp.js";
+
 
 export default {
   template: `
-  <!-- <div class = "screen" :class="{selectedNote:selectedNote}" @click="selectedNote = null"></div> -->
+  <div class = "screen" :class="{selectedNote:selectedNote}" @click="selectedNote = null"></div>
   <section class="note-app">
-   
+    <!-- <note-add /> -->
     <!-- <note-filter @filtered="setFilter"/> -->
-    <router-link to="/note/edit">Add New note</router-link>
-     <note-list :notes="notesToShow"  @removed="removeNote" />
- 
-    <note-details />
+     <note-list :notes="notesToShow"  @removed="removeNote"  @selected="selectNote"/>
+     <note-details v-if="selectedNote"  @close="selectedNote = null" :note="selectedNote" />
   </section>
 `,
   components: {
     noteList,
     noteDetails,
-    noteFilter
+    noteFilter,
+    // noteAdd,
+   
   },
   data() {
     return {
       notes: null,
       filterBy: null,
+      selectedNote: null
     };
   },
   methods: {
@@ -31,7 +34,11 @@ export default {
       noteService.remove(noteId);
       const idx = this.notes.findIndex((note) => note.id === noteId);
       this.notes.splice(idx, 1);
-    },
+    }, 
+    selectNote(note) {
+      console.log('select note fired')
+      this.selectedNote = note;
+  },
     setFilter(filterBy) {
       console.log('setfilter fired')
       this.filterBy = filterBy;
