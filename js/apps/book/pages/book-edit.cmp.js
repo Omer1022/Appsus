@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     pageTitle() {
-      const id = this.$route.params.bookdId;
+      const id = this.$route.params.bookId;
       return id ? "Edit Book" : "Add Book";
     },
   },

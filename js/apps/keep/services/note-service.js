@@ -1,5 +1,5 @@
 import { utilService } from './util-service.js';
-
+import { storageService } from '../../../services/async-storage-service.js';
 const NOTES_KEY = 'notes';
 
 _createNotes()
@@ -9,26 +9,25 @@ export const noteService = {
     remove,
     save,
     getEmptyNote,
+    get
 };
 
 function query() {
-    return utilService.loadFromStorage(NOTES_KEY);
+    return storageService.query(NOTES_KEY);
 }
 
-function remove(noteId) {
-    const notes = query();
-    const idx = notes.findIndex(note => note.id === noteId);
-    notes.splice(idx, 1);
-    utilService.saveToStorage(NOTES_KEY, notes);
+function get(noteId) {
+    return storageService.get(NOTES_KEY, noteId)
 }
 
-function save(note) {
-    note.id = utilService.makeId();
-    const notes = query();
-    notes.push(note);
-    utilService.saveToStorage(NOTES_KEY, notes);
-    return note;
+function remove(noteId) { 
+    return storageService.remove(NOTES_KEY, noteId)
 }
+
+function save(note) { 
+    if (note.id) return storageService.put(NOTES_KEY, note)
+    else return storageService.post(NOTES_KEY, note)
+ } 
 
 function getEmptyNote() {
     return {

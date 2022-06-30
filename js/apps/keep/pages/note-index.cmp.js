@@ -5,25 +5,25 @@ import noteFilter from "../cmps/note-filter.cmp.js";
 
 export default {
   template: `
-
-  <h3>tri li li</h3>
   <div class = "screen" :class="{selectedNote:selectedNote}" @click="selectedNote = null"></div>
   <section class="note-app">
    
     <note-filter @filtered="setFilter"/>
-    <note-list @selected="selectNote" :notes="notesToShow" />
-    <note-details v-if="selectedNote"  @close="selectedNote = null" :note="selectedNote" />
+    <router-link to="/note/edit">Add New note</router-link>
+     <note-list :notes="notesToShow"  @removed="removeNote" />
+     <!-- <note-list @selected="selectNote" :notes="notesToShow" /> -->
+    <!-- <note-details v-if="selectedNote"  @close="selectedNote = null" :note="selectedNote" /> -->
+    <note-details />
   </section>
 `,
-components:{
-  noteList,
-  noteDetails,
-  noteFilter
-},
+  components: {
+    noteList,
+    noteDetails,
+    noteFilter
+  },
   data() {
     return {
-      notes: noteService.query(),
-      selectedNote: null,
+      notes: null,
       filterBy: null,
     };
   },
@@ -33,22 +33,28 @@ components:{
       const idx = this.notes.findIndex((note) => note.id === noteId);
       this.notes.splice(idx, 1);
     },
-    selectNote(note) {
-        console.log('select note fired')
-        this.selectedNote = note;
-    },
     setFilter(filterBy) {
-        console.log('setfilter fired')
+      console.log('setfilter fired')
       this.filterBy = filterBy;
       console.log(this.filterBy)
     },
   },
+  created() {
+
+    noteService.query().then(note => this.notes = note)
+
+  },
   computed: {
     notesToShow() {
-      if (!this.filterBy) return this.notes
+      console.log('note', this.notes)
 
-			const regex = new RegExp(this.filterBy.title, 'i')
-			return this.notes.filter((note) => regex.test(note.title) && note.listPrice.amount >= this.filterBy.price)
+      var notes = this.notes
+      //   if (!this.filterBy) return this.notes
+
+      // 	const regex = new RegExp(this.filterBy.title, 'i')
+      // 	return this.notes.filter((note) => regex.test(note.title) && note.listPrice.amount >= this.filterBy.price)
+      // },
+      return notes
     },
-  },
-};
+  }
+}
