@@ -3,7 +3,6 @@ import { storageService } from "../services/async-storage-service.js";
 
 const EMAILS_KEY = "emailsDB";
 _createEmails();
-// getUser();
 
 export const mailService = {
   query,
@@ -148,11 +147,3 @@ function getEmails() {
   ];
   return emails;
 }
-
-// function getUser() {
-//   const loggedinUser = {
-//     email: "user@appsus.com",
-//     fullname,
-//   };
-//   return loggedinUser;
-// }

@@ -10,6 +10,7 @@ export default {
           <router-link to="/starred">⭐ Starred</router-link>
           <router-link to="/sentmail">📨 Sent Mail</router-link>
           <router-link to="/drafts">📄 Drafts</router-link>
+          <router-link to="/trash">🗑️ Trash</router-link>
   </div>
     <section class="mail-page">
       <mail-filter @filtered="filterMail"/>
