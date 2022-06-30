@@ -5,7 +5,7 @@ import mailList from "../apps/mail/cmps/mail-list.cmp.js";
 export default {
   template: `
   <div class="sidenav">
-  <router-link to="/mail/compose">➕ Compose</router-link>
+  <button class="modal-button" v-on:click="showModal()">➕ Compose</button>
           <router-link to="/mail">📥 Inbox</router-link>
           <router-link to="/starred">⭐ Starred</router-link>
           <router-link to="/sentmail">📨 Sent Mail</router-link>
@@ -14,6 +14,13 @@ export default {
     <section class="mail-page">
       <mail-filter @filtered="filterMail"/>
       <mail-list @removed="removeEmail" :emails="mailsToShow"/>
+      <div v-if="isModalOpen" class="show-modal">
+      <h1 class="modal-header">New Message</h1>
+            To:<input class="to" type="text" />
+            Subject:<input class="subject" type="text" />
+            Body:<input class="body" type="text" />
+            <button class="send-button" v-on:click="addMail">Send</button>
+</div>
   </section>
 `,
   components: {
@@ -24,6 +31,7 @@ export default {
     return {
       emails: null,
       filterBy: null,
+      isModalOpen: false,
     };
   },
   created() {
@@ -37,6 +45,13 @@ export default {
     },
     filterMail(filterBy) {
       this.filterBy = filterBy;
+    },
+    showModal() {
+      this.isModalOpen = true;
+    },
+    closeModal() {
+      this.isModalOpen = false;
+      this.newNickname = "";
     },
   },
   computed: {

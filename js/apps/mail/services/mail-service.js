@@ -145,15 +145,6 @@ function getEmails() {
       sentAt: "2022-04-01 08:56",
       to: "momo@momo.com",
     },
-    {
-      id: "e112",
-      from: "Donny",
-      subject: "Job",
-      body: "Can you send us your CV?",
-      isRead: false,
-      sentAt: "2022-03-25 13:56",
-      to: "momo@momo.com",
-    },
   ];
   return emails;
 }

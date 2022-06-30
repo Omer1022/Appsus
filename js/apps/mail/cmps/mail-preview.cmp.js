@@ -10,27 +10,14 @@ export default {
         <li>{{email.subject}} -</li>
         <li class="email-body">{{email.body}}</li>
         <li>{{email.sentAt}}</li>
-      </router-link>
     </strong>
-        <button class="remove-mail" style="background: url(img/delete.png)" 
-        @click="remove(email.id)"></button>
+    </router-link>
 </div>
 </ul>
       `,
   data() {
-    return {
-      isRead: false,
-    };
+    return {};
   },
-  methods: {
-    remove(emailId) {
-      this.$emit("removed", emailId);
-    },
-  },
-  computed: {
-    readMessage() {
-      let text = email.subject;
-      if (!isRead) return (text.style.fontWeight = "bold");
-    },
-  },
+  methods: {},
+  computed: {},
 };

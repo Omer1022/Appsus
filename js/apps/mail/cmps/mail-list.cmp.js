@@ -9,6 +9,7 @@ export default {
             @click="select(email)">
                 <mail-preview :email="email"/>
                 <div class="actions">
+                <button class="remove-mail" @click="remove(email.id)"></button>
                 </div>
             </li>
         </ul>
@@ -22,6 +23,9 @@ export default {
     return {};
   },
   methods: {
+    remove(emailId) {
+      this.$emit("removed", emailId);
+    },
     select(email) {
       this.$emit("selected", email);
     },

@@ -83,3 +83,68 @@ li {
     padding-top: 15px;
   }
 }
+
+.remove-mail {
+  background-image: url(/img/delete.png);
+  background-repeat: none;
+  height: 17px;
+  border: none;
+  float: right;
+}
+
+.modal-button {
+  background-color: white;
+  color: gray;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.modal-button:hover {
+  background-color: lightgray;
+}
+
+.show-modal {
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.show-modal button {
+  width: 100px;
+  height: 50px;
+  border: 1px solid gray;
+}
+
+.modal-header {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  background-color: rgb(75, 75, 75);
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
+
+.send-button {
+  position: absolute;
+  font-size: 20px;
+  background-color: rgb(78, 110, 255);
+  border-radius: 5px;
+  cursor: pointer;
+  left: 0%;
+  bottom: 0%;
+}
+
+.show-modal input {
+  height: 30px;
+}
