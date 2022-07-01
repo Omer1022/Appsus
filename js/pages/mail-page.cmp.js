@@ -17,10 +17,10 @@ export default {
       <mail-list @removed="removeEmail" :emails="mailsToShow"/>
       <div v-if="isModalOpen" class="show-modal">
       <h1 class="modal-header">New Message</h1>
-            From:<input v-model="newFrom" class="from" type="text" />
-            To:<input v-model="newTo" class="to" type="text" />
-            Subject:<input v-model="newSubject" class="subject" type="text" />
-            Body:<input v-model="newBody" class="body" type="text" />
+            From:<input v-model="newFrom" type="text" />
+            To:<input v-model="newTo" type="text" />
+            Subject:<input v-model="newSubject" ype="text" />
+            Body:<input v-model="newBody" type="text" />
             <button class="send-button" v-on:click="addEmail">Send</button>
 </div>
   </section>
@@ -40,13 +40,13 @@ export default {
     mailService.query().then((emails) => (this.emails = emails));
   },
   methods: {
+    filterMail(filterBy) {
+      this.filterBy = filterBy;
+    },
     removeEmail(emailId) {
       mailService.remove(emailId);
       const idx = this.emails.findIndex((email) => email.id === emailId);
       this.emails.splice(idx, 1);
-    },
-    filterMail(filterBy) {
-      this.filterBy = filterBy;
     },
     addEmail() {
       const id = Date.now() % 10000;
@@ -69,6 +69,11 @@ export default {
     },
   },
   computed: {
+    save() {
+      mailService.save(this.newEmail).then((email) => {
+        this.$router.push("/mail");
+      });
+    },
     mailsToShow() {
       if (!this.filterBy) return this.emails;
       const regex = new RegExp(this.filterBy.subject, "i");

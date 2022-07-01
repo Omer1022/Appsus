@@ -13,6 +13,13 @@ export const mailService = {
 };
 
 function query() {
+  const criteria = {
+    status: "inbox/sent/trash/draft",
+    txt: "puki",
+    isRead: true,
+    isStared: true,
+    lables: ["important", "romantic"],
+  };
   return storageService.query(EMAILS_KEY);
 }
 
@@ -30,7 +37,7 @@ function get(emailId) {
 }
 
 function getEmptyEmail() {
-  return { id: "", subject: "", body: "" };
+  return { id: "e130", from: "", subject: "", body: "", isRead: false };
 }
 
 function _createEmails() {
