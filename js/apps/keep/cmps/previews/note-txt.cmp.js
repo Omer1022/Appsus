@@ -1,4 +1,4 @@
-import longText from "./long-text.cmp.js";
+import longText from "../../services/long-text.service.cmp.js";
 
 export default {
     props: ["noteObj"],

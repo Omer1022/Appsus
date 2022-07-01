@@ -31,7 +31,7 @@ function save(note) {
 
 function getEmptyNote() {
     return {
-        id: '', title: '', type: '', isPinned: false, info: {}, style: {}
+        id:'', title: '', type: '', isPinned: false, info: {}, style: {}
     };
 }
 

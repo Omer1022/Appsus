@@ -2,14 +2,14 @@ import { noteService } from "../services/note-service.js";
 import noteList from "../cmps/note-list.cmp.js";
 import noteDetails from "../pages/note-details.cmp.js";
 import noteFilter from "../cmps/note-filter.cmp.js";
-// import noteAdd from "../cmps/note-add.cmp.js";
+import noteAdd from "../cmps/add/note-add.cmp.js";
 
 
 export default {
   template: `
   <div class = "screen" :class="{selectedNote:selectedNote}" @click="selectedNote = null"></div>
   <section class="note-app">
-    <!-- <note-add /> -->
+    <note-add  @newText ="createNewTxt"/>
     <!-- <note-filter @filtered="setFilter"/> -->
      <note-list :notes="notesToShow"  @removed="removeNote"  @selected="selectNote"/>
      <note-details v-if="selectedNote"  @close="selectedNote = null" :note="selectedNote" />
@@ -19,7 +19,7 @@ export default {
     noteList,
     noteDetails,
     noteFilter,
-    // noteAdd,
+    noteAdd
    
   },
   data() {
@@ -44,7 +44,17 @@ export default {
       this.filterBy = filterBy;
       console.log(this.filterBy)
     },
-  },
+    createNewTxt(txt){
+      console.log('hey')
+      let newNote = noteService.getEmptyNote()
+       newNote.type = 'note-txt'
+       newNote.info.txt = txt 
+       noteService.save(newNote)
+       this.notes.push(newNote)
+      }
+
+ 
+    },
   created() {
 
     noteService.query().then(note => this.notes = note)

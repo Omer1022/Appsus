@@ -1,4 +1,4 @@
-import todoTask from "./todo-task.cmp.js";
+import todoTask from "../todo-task.cmp.js";
 
 export default {
 props: ['todos'],

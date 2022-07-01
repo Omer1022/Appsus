@@ -1,4 +1,4 @@
-import longText from '../cmps/long-text.cmp.js'
+import longText from '../services/long-text.service.cmp.js'
 import { noteService } from '../services/note-service.js'
 export default {
   props: ['note'],
