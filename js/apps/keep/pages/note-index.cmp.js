@@ -9,18 +9,20 @@ export default {
   template: `
   <div class = "screen" :class="{selectedNote:selectedNote}" @click="selectedNote = null"></div>
   <section class="note-app">
-    <note-add  @newText ="createNewTxt"/>
+    <!-- <note-add  @newNote ="createNewTxt"/> -->
+    <!-- <note-add/> -->
+    <note-add  @newNote ="createNewNote"/>
     <!-- <note-filter @filtered="setFilter"/> -->
      <note-list :notes="notesToShow"  @removed="removeNote"  @selected="selectNote"/>
      <note-details v-if="selectedNote"  @close="selectedNote = null" :note="selectedNote" />
-  </section>
+  </section>  
 `,
   components: {
     noteList,
     noteDetails,
     noteFilter,
     noteAdd
-   
+
   },
   data() {
     return {
@@ -34,27 +36,52 @@ export default {
       noteService.remove(noteId);
       const idx = this.notes.findIndex((note) => note.id === noteId);
       this.notes.splice(idx, 1);
-    }, 
+    },
     selectNote(note) {
       console.log('select note fired')
       this.selectedNote = note;
-  },
+    },
     setFilter(filterBy) {
       console.log('setfilter fired')
       this.filterBy = filterBy;
       console.log(this.filterBy)
     },
-    createNewTxt(txt){
-      console.log('hey')
+    createNewNote(info, type) {
+      console.log('input+type', info, type)
       let newNote = noteService.getEmptyNote()
-       newNote.type = 'note-txt'
-       newNote.info.txt = txt 
-       noteService.save(newNote)
-       this.notes.push(newNote)
+      newNote.type = type
+      console.log('newNote', newNote)
+      
+      switch (type) {
+        case 'note-txt':{
+          console.log('texttttt')
+          newNote.info.txt = info.txt
+          newNote.info.title = info.title
+          console.log('newNote.info.txt', newNote.info.txt)
+          break
+        }
+        case 'note-img':{
+          newNote.info.url = info.url 
+          newNote.info.title = info.title 
+          
+          break
+        }
+        case 'note-todo':{
+          console.log("I'm Making a new todo")
+          newNote.info.label = info.label
+          console.log('info.label',info.label)
+          newNote.info.todos = info.todos
+          break
+        }
       }
-
- 
+      noteService.save(newNote)
+      this.notes.push(newNote)
     },
+
+
+
+
+  },
   created() {
 
     noteService.query().then(note => this.notes = note)

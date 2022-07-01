@@ -10,6 +10,9 @@ export default {
   data() {
     return {};
   },
+  created(){
+    console.log('noteObj', this.noteObj)
+  },
   components:{
     todoList
   },

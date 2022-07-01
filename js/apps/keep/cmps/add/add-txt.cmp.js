@@ -4,22 +4,27 @@ import { noteService } from "../../services/note-service.js"
 export default {
  template: `
  <form  action="">
- <input v-model="txt" type="text" placeHolder="take a note...">
-<button @click = "createdTxt(txt)">add</button>
-<p>the new note: {{txt}}</p>
+ <input type="text" v-model= "info.title">
+<textarea cols="30" rows="10" v-model="info.txt" placeHolder="take a note..."></textarea>
+<button @click = "createdTxt(info)">add</button>
+<!-- <p>the new note: {{txt}}</p> -->
  </form>
 `,
 data() {
 return {
-    txt: ''
+    info: {
+        title: '',
+        txt: ''
+    }
 };
 },
 created() {
     
 },
 methods: { 
-    createdTxt(txt){
-        this.$emit("newText", txt);
+    createdTxt(info){
+        if (!this.info.title.length && !this.info.txt.length) return
+        this.$emit("newNote", this.info, 'note-txt');
      
     }
 },

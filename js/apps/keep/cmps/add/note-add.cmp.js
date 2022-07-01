@@ -9,7 +9,7 @@ export default {
  <section class="add-new-note">
   
     <form @submit.prevent="add">
-    <component :is="type" @newText = "newText"> </component>
+    <component :is="type" @newNote = "newNote"> </component>
         <ul class="note-types-list">
           <li><a @click="setInput('addTxt')">txt</a></li>
           <li><a @click="setInput('addImg')">img</a></li>
@@ -33,8 +33,9 @@ export default {
       console.log('this.type', this.type)
       
     },
-    newText(txt){
-      this.$emit("newText", txt)
+    newNote(info, type){
+      // console.log('emit new', type, info)
+      this.$emit("newNote", info, type)
     },
     add() {
       console.log('adding')
