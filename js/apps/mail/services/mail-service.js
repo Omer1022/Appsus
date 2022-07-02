@@ -122,7 +122,6 @@ export const mailService = {
   remove,
   save,
   get,
-  saveAll,
   getEmptyEmail,
 };
 
@@ -137,10 +136,6 @@ function remove(emailId) {
 function save(email) {
   if (email.id) return storageService.put(EMAILS_KEY, email);
   else return storageService.post(EMAILS_KEY, email);
-}
-
-function saveAll(emails) {
-  storageService.put(EMAILS_KEY, emails);
 }
 
 function get(emailId) {
