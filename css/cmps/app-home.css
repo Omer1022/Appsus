@@ -1,3 +1,24 @@
+.home-page {
+  height: 594px;
+  font-size: 30px;
+  font-family: sans-serif;
+  font-style: italic;
+  text-align: center;
+  background: url(/img/home.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 h3 {
-  color: black;
+  color: white;
+  background-color: black;
+  font-family: serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 44px;
+  margin: 0 0 12px;
+  text-align: center;
 }

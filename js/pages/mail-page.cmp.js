@@ -68,6 +68,8 @@ export default {
       this.emails.splice(idx, 1);
     },
     addEmail() {
+      const now = new Date();
+      const current = now.getHours() + ":" + now.getMinutes();
       const id = Date.now() % 10000;
       const newEmail = {
         id,
@@ -75,7 +77,7 @@ export default {
         to: this.to,
         subject: this.subject,
         body: this.body,
-        sentAt: Date(),
+        sentAt: current,
       };
       this.emails.push(newEmail);
       this.closeModal();
