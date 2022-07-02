@@ -4,8 +4,8 @@ export default {
     props: ["noteObj"],
     template: `
     <h3>{{noteObj.info.title}}</h3>
-    <h4>{{noteObj.info.txt}}</h4>
-    <!-- <long-text :text="noteObj.info.txt"/> -->
+    <!-- <h4>{{noteObj.info.txt}}</h4> -->
+    <long-text :text="noteObj.info.txt"/>
       
   `,
     data() {
