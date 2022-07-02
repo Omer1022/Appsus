@@ -53,21 +53,21 @@ function _createEmails() {
 function getEmails() {
   const emails = [
     {
-      id: "e102",
-      from: "Bibi",
-      subject: "Hello",
-      body: "How Are you?",
-      isRead: false,
-      sentAt: "2022-06-28 18:11",
-      to: "momo@momo.com",
-    },
-    {
       id: "e101",
       from: "Mimi",
       subject: "Miss you!",
       body: "Would love to catch up sometimes",
       isRead: false,
       sentAt: "2022-06-29 12:25",
+      to: "momo@momo.com",
+    },
+    {
+      id: "e102",
+      from: "David",
+      subject: "Hello",
+      body: "How Are you?",
+      isRead: false,
+      sentAt: "2022-06-28 18:11",
       to: "momo@momo.com",
     },
     {
