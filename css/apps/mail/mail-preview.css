@@ -1,7 +1,7 @@
 /* EMAIL PREVIEW */
 
 .mail-preview {
-  margin-left: 70px;
+  margin-left: 140px;
   display: inline-block;
   overflow: hidden;
 }
@@ -27,7 +27,7 @@ li {
 .sidenav {
   margin-top: 25px;
   height: 100%;
-  width: 160px;
+  width: 210px;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -37,6 +37,7 @@ li {
 }
 
 .sidenav a {
+  height: 30px;
   text-decoration: none;
   display: block;
   border-radius: 5px;
@@ -81,7 +82,7 @@ li {
 }
 
 .email-details {
-  margin-left: 170px;
+  margin-left: 250px;
 }
 
 h1 {
@@ -104,6 +105,7 @@ p {
 /* EMAIL MODAL */
 
 .modal-button {
+  width: 190px;
   background-color: white;
   color: gray;
   border: none;
