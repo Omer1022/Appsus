@@ -25,6 +25,7 @@ li {
 }
 
 .sidenav {
+  margin-top: 25px;
   height: 100%;
   width: 160px;
   position: fixed;
@@ -69,6 +70,7 @@ li {
 /* EMAIL FILTER */
 
 .email-filter {
+  background-color: orange;
   text-align: center;
 }
 
@@ -153,4 +155,10 @@ p {
 
 .show-modal input {
   height: 30px;
+}
+
+/* EMAIL SORT */
+
+.email-sort {
+  text-align: center;
 }
