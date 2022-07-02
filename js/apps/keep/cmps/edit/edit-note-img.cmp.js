@@ -1,4 +1,4 @@
-import editActionsBar from "../edit-actions-bar.cmp.js";
+
 export default {
     props:["note"],
  template: `
@@ -7,7 +7,7 @@ export default {
  <input  v-model="noteToEdit.info.title" type="text" placeHolder="enter a title...">
  <input  v-model="noteToEdit.info.url" type="text" placeHolder="enter a url...">
  <button class="close-modal" @click="$emit('close', noteToEdit)">Close</button>
-    <edit-actions-bar/>
+   
 `,
 data() {
 return {
@@ -19,7 +19,7 @@ created() {
     console.log( this.noteToEdit.info.url)
 },
 components: {
-    editActionsBar
+
 },
 methods: {},
 computed: {},

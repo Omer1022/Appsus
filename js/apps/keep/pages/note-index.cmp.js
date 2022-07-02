@@ -8,13 +8,13 @@ import { utilService } from "../services/util-service.js";
 
 export default {
   template: `
-  <div class = "screen" :class="{selectedNote:selectedNote}" @click="onClose "></div>
+  <!-- <div class = "screen" :class="{selectedNote:selectedNote}" @click="onClose "></div> -->
   <section class="note-app">
  
     <note-add  @newNote ="createNewNote"/>
     <!-- <note-filter @filtered="setFilter"/> -->
      <note-list :notes="notesToShow"  @removed="removeNote"  @selected="selectNote"/>
-     <note-details v-if="selectedNote"  @close="onClose" :note="selectedNote" />
+     <note-details v-if="selectedNote"  @close="onClose" :note="selectedNote" @removed="removeNote" />
   </section>  
 `,
   components: {
@@ -32,10 +32,14 @@ export default {
     };
   },
   methods: {
-    removeNote(noteId) {
+    removeNote(noteId, src) {
+      console.log('noteId', noteId)
+      // console.log('src', src)
       noteService.remove(noteId);
       const idx = this.notes.findIndex((note) => note.id === noteId);
       this.notes.splice(idx, 1);
+      this.selectedNote = null
+
     },
     selectNote(note) {
       console.log('select note fired')
@@ -91,12 +95,12 @@ export default {
       this.notes.push(newNote)
     },
     onClose(note){
-      console.log('fuck yeah')
       this.selectedNote = null
       noteService.save(note) 
     },
     removedTask(){
       console.log('never hae I ever')
+      
     }
 
 

@@ -6,7 +6,7 @@ import mailPage from "./pages/mail-page.cmp.js";
 import mailDetails from "./apps/mail/pages/mail-details.cmp.js";
 import keepPage from "./pages/keep-page.cmp.js";
 import noteDetails from "./apps/keep/pages/note-details.cmp.js";
-import noteEdit from "./apps/keep/pages/note-edit.cmp.js";
+// import noteEdit from "./apps/keep/pages/note-edit.cmp.js";
 
 const routes = [
   {
@@ -29,10 +29,10 @@ const routes = [
     path: "/note/:noteId",
     component: noteDetails,
   },
-  {
-    path: "/note/edit/:noteId?",
-    component: noteEdit,
-  },
+  // {
+  //   path: "/note/edit/:noteId?",
+  //   component: noteEdit,
+  // },
   {
     path: "/book",
     component: bookPage,

@@ -4,13 +4,7 @@ export default {
     <form action="">
     <input type="text" placeHolder="new list title..." v-model="info.label">
     <textarea  v-model="info.todosStr" placeHolder="enter your tasks separated by comas" cols="30" rows="10"></textarea>
-    <!-- <ul>
-        <li class="list-item"><todo-Item-Input @addListItem = "addLine" @addTask = "addTodo"></li>
-        <li v-for="todo in info.todos">
-            <todo-Item-Input @addListItem = "addLine" @addTask = "addTodo">
-            </li>
-    </ul> -->
-    <pre>todos: {{info.todosStr}}</pre>
+
     <button @click = "createdTodo">add</button>
     </form>
    `,

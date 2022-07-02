@@ -33,7 +33,7 @@
 
 .note-details-modal {
   position: fixed;
-  border: 0.2 solid lightslategrey;
+  border: 0.2rem solid lightslategrey;
   top: 50%;
   left: 5%;
   transform: translate(0, -50%);
@@ -79,9 +79,7 @@ body .selectedNote.screen {
   z-index: 10;
 }
 
-.product-details-modal p {
-  color: #808080;
-}
+
 .isDone { 
   text-decoration: line-through;
 }

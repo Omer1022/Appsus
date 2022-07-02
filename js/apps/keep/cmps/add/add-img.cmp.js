@@ -4,7 +4,6 @@ export default {
  <input  v-model="info.title" type="text" placeHolder="enter a title...">
  <input  v-model="info.url" type="text" placeHolder="enter a url...">
  <button @click = "createdTxt(txt)">add</button>
- <pre>{{info}}</pre>
  </form>
 `,
 data() {
