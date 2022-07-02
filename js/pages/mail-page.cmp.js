@@ -1,7 +1,6 @@
 import { mailService } from "../apps/mail/services/mail-service.js";
 import mailFilter from "../apps/mail/cmps/mail-filter.cmp.js";
 import mailList from "../apps/mail/cmps/mail-list.cmp.js";
-import mailSort from "../apps/mail/cmps/mail-sort.cmp.js";
 
 export default {
   template: `
@@ -14,8 +13,7 @@ export default {
           <a href="#">🗑️ Trash</a>
   </div>
     <section class="mail-page">
-      <mail-filter @filtered="filterMail"/>
-      <mail-sort @sort="sortMail"/>
+      <mail-filter @filtered="filterMail" @sort="sortMail"/>
       <mail-list @removed="removeEmail" :emails="mailsToShow"/>
       <div v-if="isModalOpen" class="show-modal">
       <h1 class="modal-header">New Message</h1>
@@ -30,7 +28,6 @@ export default {
   components: {
     mailFilter,
     mailList,
-    mailSort,
   },
   data() {
     return {
