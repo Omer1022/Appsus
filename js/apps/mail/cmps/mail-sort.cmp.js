@@ -18,13 +18,10 @@ export default {
     },
   },
   computed: {
-    sortedMails: function sort() {
-      function compare(a, b) {
-        if (a.sentAt < b.sentAt) return -1;
-        if (a.sentAt > b.sentAt) return 1;
-        return 0;
-      }
-      return this.emails.sort(compare);
+    sortedEmails: function () {
+      return this.emails.sort(
+        (a, b) => new Date(a.sentAt) - new Date(b.sentAt)
+      );
     },
   },
 };
