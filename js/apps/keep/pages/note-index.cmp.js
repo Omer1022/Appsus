@@ -9,12 +9,11 @@ export default {
   template: `
   <div class = "screen" :class="{selectedNote:selectedNote}" @click="selectedNote = null"></div>
   <section class="note-app">
-    <!-- <note-add  @newNote ="createNewTxt"/> -->
-    <!-- <note-add/> -->
+ 
     <note-add  @newNote ="createNewNote"/>
     <!-- <note-filter @filtered="setFilter"/> -->
      <note-list :notes="notesToShow"  @removed="removeNote"  @selected="selectNote"/>
-     <note-details v-if="selectedNote"  @close="selectedNote = null" :note="selectedNote" />
+     <note-details v-if="selectedNote"  @close="onClose" :note="selectedNote" />
   </section>  
 `,
   components: {
@@ -51,32 +50,48 @@ export default {
       let newNote = noteService.getEmptyNote()
       newNote.type = type
       console.log('newNote', newNote)
-      
+
       switch (type) {
-        case 'note-txt':{
+        case 'note-txt': {
           console.log('texttttt')
           newNote.info.txt = info.txt
           newNote.info.title = info.title
           console.log('newNote.info.txt', newNote.info.txt)
           break
         }
-        case 'note-img':{
-          newNote.info.url = info.url 
-          newNote.info.title = info.title 
-          
+        case 'note-img': {
+          newNote.info.url = info.url
+          newNote.info.title = info.title
+
           break
         }
-        case 'note-todo':{
+        case 'note-todos': {
           console.log("I'm Making a new todo")
           newNote.info.label = info.label
-          console.log('info.label',info.label)
-          newNote.info.todos = info.todos
+          console.log('info.label', info.label)
+          let tasksTxt = info.todosStr.split(',')
+          console.log('tasksTxt', tasksTxt)
+          let todoObj = tasksTxt.map(txt => {
+            return {
+              txt: txt,
+              doneAt: null
+            }
+          })
+          console.log('todoObj', todoObj)
+          
+          newNote.info.todos = todoObj
+          console.log(' newNote.info.todos', newNote.info.todos)
+
           break
         }
       }
       noteService.save(newNote)
       this.notes.push(newNote)
     },
+    onClose(note){
+      this.selectedNote = null
+      console.log('the note i just closed:', note)
+    }
 
 
 

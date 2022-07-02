@@ -1,30 +1,38 @@
-import longText from '../services/long-text.service.cmp.js'
-import { noteService } from '../services/note-service.js'
+// import longText from '../services/long-text.service.cmp.js'
+import editNoteImg from '../cmps/edit/edit-note-img.cmp.js'
+import editNoteTxt from '../cmps/edit/edit-note-txt.cmp.js'
+import editNoteTodos from '../cmps/edit/edit-note-todos.cmp.js'
+// import { noteService } from '../services/note-service.js'
+
+
 export default {
   props: ['note'],
   template: `
     <section class="note-details-modal">
    
         <div class="details-text-modal">
-            <h3>{{note.title}}</h3>
-        </div> 
-          
-            <div class="product-details-modal">
-                <p> <span>{{note.type}}</span></p>
-         
-            </div>
-            <button class="close-modal" @click="$emit('close')">Close</button>
-    </section>
+    
+          <component :is="componentsType" :note="noteToEdit" @close="onClose"> </component>
+     
+            <!-- <button class="close-modal" @click="">Close</button> -->
+    </section> -->
   `,
   data() {
 		return {
-
+      noteToEdit: null,
+      componentsType: null
     }
 	},
-	methods: {},
+	methods: {
+    onClose(note){
+      this.$emit('close', note)
+    }
+  },
   created() {
-    // const id = this.$route.params.noteId
-    // noteService.get(id).then(note => this.note = note)
+   this.noteToEdit = this.$props.note
+   this.componentsType = `edit-${this.noteToEdit.type}`
+    console.log('this.note.type',this.componentsType)
+   
   },
   
   computed: {
@@ -32,6 +40,9 @@ export default {
   },
 
   components: {
-    longText,
+    // longText,
+    editNoteTxt,
+    editNoteTodos,
+    editNoteImg
   },
 }
