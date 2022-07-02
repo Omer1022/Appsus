@@ -27,6 +27,7 @@ function remove(noteId) {
 function save(note) { 
     if (note.id) return storageService.put(NOTES_KEY, note)
     else return storageService.post(NOTES_KEY, note)
+
  } 
 
 function getEmptyNote() {
