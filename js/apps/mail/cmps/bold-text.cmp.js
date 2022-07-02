@@ -1,7 +1,7 @@
 export default {
   props: ["text"],
   template: `
-      <li><span :style="readStyle" @click="isRead = !isRead">{{formatedText}}</span></li>
+      <li><span @click="isRead = !isRead" :style="readStyle">{{formatedText}}</span></li>
   `,
   data() {
     return {

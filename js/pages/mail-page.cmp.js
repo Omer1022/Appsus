@@ -1,6 +1,7 @@
 import { mailService } from "../apps/mail/services/mail-service.js";
 import mailFilter from "../apps/mail/cmps/mail-filter.cmp.js";
 import mailList from "../apps/mail/cmps/mail-list.cmp.js";
+import mailSort from "../apps/mail/cmps/mail-sort.cmp.js";
 
 export default {
   template: `
@@ -14,13 +15,14 @@ export default {
   </div>
     <section class="mail-page">
       <mail-filter @filtered="filterMail"/>
+      <mail-sort @sort="sortMail"/>
       <mail-list @removed="removeEmail" :emails="mailsToShow"/>
       <div v-if="isModalOpen" class="show-modal">
       <h1 class="modal-header">New Message</h1>
-            From:<input v-model="newFrom" type="text" />
-            To:<input v-model="newTo" type="text" />
-            Subject:<input v-model="newSubject" ype="text" />
-            Body:<input v-model="newBody" type="text" />
+            From:<input v-model="from" type="text" />
+            To:<input v-model="to" type="text" />
+            Subject:<input v-model="subject" ype="text" />
+            Body:<input v-model="body" type="text" />
             <button class="send-button" v-on:click="addEmail">Send</button>
 </div>
   </section>
@@ -28,12 +30,14 @@ export default {
   components: {
     mailFilter,
     mailList,
+    mailSort,
   },
   data() {
     return {
       emails: null,
       filterBy: null,
       isModalOpen: false,
+      sortBy: null,
     };
   },
   created() {
@@ -42,6 +46,10 @@ export default {
   methods: {
     filterMail(filterBy) {
       this.filterBy = filterBy;
+    },
+    sortMail(sortBy) {
+      console.log(sortBy);
+      this.sortBy = sortBy;
     },
     removeEmail(emailId) {
       mailService.remove(emailId);
@@ -52,10 +60,10 @@ export default {
       const id = Date.now() % 10000;
       const newEmail = {
         id,
-        from: this.newFrom,
-        to: this.newTo,
-        subject: this.newSubject,
-        body: this.newBody,
+        from: this.from,
+        to: this.to,
+        subject: this.subject,
+        body: this.body,
         sentAt: Date(),
       };
       this.emails.push(newEmail);
