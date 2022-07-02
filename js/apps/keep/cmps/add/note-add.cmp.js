@@ -1,7 +1,7 @@
-import { noteService } from "../../services/note-service.js";
-import addTxt from "./add-txt.cmp.js";
-import addImg from "./add-img.cmp.js";
-import addTodo from "./add-todo.cmp.js";
+import { noteService } from "../../services/note-service.js"  
+import addTxt from "./add-txt.cmp.js"  
+import addImg from "./add-img.cmp.js"  
+import addTodo from "./add-todo.cmp.js"  
 
 export default {
   template: `
@@ -29,21 +29,12 @@ export default {
   },
   methods: {
     setInput(type){
-      this.type = type
-      console.log('this.type', this.type)
-      
+      this.type = type    
     },
     newNote(info, type){
-      // console.log('emit new', type, info)
       this.$emit("newNote", info, type)
     },
-    add() {
-      console.log('adding')
-      // if (!this.noteToEdit.title) return;
-      // noteService.save(this.noteToEdit).then((note) => {
-      //   this.$router.push("/note");
-      // });
-    },
+ 
   },
   components: {
     noteService,
@@ -54,4 +45,4 @@ export default {
   computed: {
 
   },
-};
+}  

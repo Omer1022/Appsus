@@ -1,9 +1,7 @@
-
-import noteTodos from "./previews/note-todos.cmp.js";
-import noteTxt from "./previews/note-txt.cmp.js";
-import noteImg from "./previews/note-img.cmp.js";
-import editActionsBar from "./edit-actions-bar.cmp.js";
-import { noteService } from "../services/note-service.js";
+import noteTodos from "./previews/note-todos.cmp.js"  
+import noteTxt from "./previews/note-txt.cmp.js"  
+import noteImg from "./previews/note-img.cmp.js"  
+import editActionsBar from "./edit-actions-bar.cmp.js"   
 
 export default {
   props: ["notes"],
@@ -13,8 +11,8 @@ export default {
             <li v-for="note in notes" :key="note.id" class="note-preview-container" @click="select(note)">
             <component :is="note.type" :noteObj="note">note</component>
               <div class="actions">
-                    <edit-actions-bar :id="note" @removed="remove(note.id)"></edit-actions-bar>
-                       <!-- <button >X</button> -->
+                    <edit-actions-bar :note="note" @removed="remove(note.id)"></edit-actions-bar>
+                
                     </div>
             
             </li>
@@ -27,28 +25,22 @@ export default {
     noteTxt,
     editActionsBar
   },
-
   data() {
-    return {
-      // notesList: notes
-
-    };
+    return {}  
   },
   created(){
     console.log('this.notes',this.notes)
-  
-    
-
   } ,
   methods: {
     remove(noteId) {
       console.log('removed from preview')
-      this.$emit("removed", noteId, 'preview');
+      this.$emit("removed", noteId, 'preview')  
     },
     select(note) {
         console.log('note', note)
-      this.$emit("selected", note);
+      this.$emit("selected", note)  
     },
   },
-  computed: {},
-};
+  computed: {
+  },
+}  

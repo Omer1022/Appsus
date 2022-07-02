@@ -1,8 +1,6 @@
 export default {
-    template: `
+  template: `
    <section class="note-filter">
-      <!-- <pre>{{filterBy}}</pre> -->
-      
       <form action="">
       Filter by title:
       <input type="text" v-model="filterBy.title" @input="filter" placeholder="Enter title....">
@@ -11,21 +9,20 @@ export default {
       </form>
    </section>
   `,
-    data() {
-      return {
-        filterBy: {
-          title:'' ,
-          price: 0
-        },
-      };
-    },
-    methods: {
-      filter() {
-        this.$emit("filtered", this.filterBy);
+  data() {
+    return {
+      filterBy: {
+        title: '',
+        price: 0
       },
+    }
+  },
+  methods: {
+    filter() {
+      this.$emit("filtered", this.filterBy)
     },
-    computed: {
-     
-    },
-  };
-  
+  },
+  computed: {
+
+  },
+}

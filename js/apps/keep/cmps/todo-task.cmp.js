@@ -8,15 +8,14 @@ return {
    todoTask: {
     lineThrough: false
    }
-};
+}  
 },
 created() {
     this.todoTask = this.$props.todo
-    console.log('this.todoTask',this.todoTask)
 },
 methods: {
 
 },
 computed: {},
 unmounted() {},
-};
+}  

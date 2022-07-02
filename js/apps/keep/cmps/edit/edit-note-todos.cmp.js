@@ -1,6 +1,6 @@
-import todoList from "../previews/todo-list.cmp.js";
-import { todoService } from "../../services/todo-service.js";
-import { utilService } from "../../services/util-service.js";
+import todoList from "../previews/todo-list.cmp.js"  
+import { todoService } from "../../services/todo-service.js"  
+import { utilService } from "../../services/util-service.js"  
 
 
 export default {
@@ -17,7 +17,7 @@ export default {
         return {
             note:null,
             newTask: null
-        };
+        }  
     },
     created() { 
         this.note = this.$props.note
@@ -36,4 +36,4 @@ export default {
         todoList,
        
     }
-};
+}  

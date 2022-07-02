@@ -1,18 +1,17 @@
-import { noteService } from "../services/note-service.js";
-import noteList from "../cmps/note-list.cmp.js";
-import noteDetails from "../pages/note-details.cmp.js";
-import noteFilter from "../cmps/note-filter.cmp.js";
-import noteAdd from "../cmps/add/note-add.cmp.js";
-import { utilService } from "../services/util-service.js";
+import { noteService } from "../services/note-service.js"
+import noteList from "../cmps/note-list.cmp.js"
+import noteDetails from "../pages/note-details.cmp.js"
+import noteFilter from "../cmps/note-filter.cmp.js"
+import noteAdd from "../cmps/add/note-add.cmp.js"
+import { utilService } from "../services/util-service.js"
 
 
 export default {
   template: `
-  <!-- <div class = "screen" :class="{selectedNote:selectedNote}" @click="onClose "></div> -->
+  
   <section class="note-app">
  
     <note-add  @newNote ="createNewNote"/>
-    <!-- <note-filter @filtered="setFilter"/> -->
      <note-list :notes="notesToShow"  @removed="removeNote"  @selected="selectNote"/>
      <note-details v-if="selectedNote"  @close="onClose" :note="selectedNote" @removed="removeNote" />
   </section>  
@@ -27,28 +26,28 @@ export default {
   data() {
     return {
       notes: null,
-      filterBy: null,
+      // filterBy: null,
       selectedNote: null
-    };
+    }
   },
   methods: {
     removeNote(noteId, src) {
       console.log('noteId', noteId)
-      // console.log('src', src)
-      noteService.remove(noteId);
-      const idx = this.notes.findIndex((note) => note.id === noteId);
-      this.notes.splice(idx, 1);
+
+      noteService.remove(noteId)
+      const idx = this.notes.findIndex((note) => note.id === noteId)
+      this.notes.splice(idx, 1)
       this.selectedNote = null
 
     },
     selectNote(note) {
       console.log('select note fired')
-      this.selectedNote = note;
+      this.selectedNote = note
     },
     setFilter(filterBy) {
       console.log('setfilter fired')
-      this.filterBy = filterBy;
-      console.log(this.filterBy)
+      this.filterBy = filterBy
+
     },
     createNewNote(info, type) {
       console.log('input+type', info, type)
@@ -84,7 +83,7 @@ export default {
             }
           })
           console.log('todoObj', todoObj)
-          
+
           newNote.info.todos = todoObj
           console.log(' newNote.info.todos', newNote.info.todos)
 
@@ -94,13 +93,13 @@ export default {
       noteService.save(newNote)
       this.notes.push(newNote)
     },
-    onClose(note){
+    onClose(note) {
       this.selectedNote = null
-      noteService.save(note) 
+      noteService.save(note)
     },
-    removedTask(){
+    removedTask() {
       console.log('never hae I ever')
-      
+
     }
 
 
@@ -114,13 +113,12 @@ export default {
   },
   computed: {
     notesToShow() {
-      // console.log('note', this.notes)
-
+  
       var notes = this.notes
       //   if (!this.filterBy) return this.notes
 
       // 	const regex = new RegExp(this.filterBy.title, 'i')
-      // 	return this.notes.filter((note) => regex.test(note.title) && note.listPrice.amount >= this.filterBy.price)
+      // 	return this.notes.filter((note) => regex.test(note.type) && note.info.title)
       // },
       return notes
     },

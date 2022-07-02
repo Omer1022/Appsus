@@ -1,4 +1,3 @@
-
 export default {
     props:["note"],
  template: `
@@ -12,11 +11,10 @@ export default {
 data() {
 return {
     noteToEdit:null
-};
+}  
 },
 created() {
     this.noteToEdit = this.$props.note
-    console.log( this.noteToEdit.info.url)
 },
 components: {
 
@@ -24,4 +22,4 @@ components: {
 methods: {},
 computed: {},
 unmounted() {},
-};
+}  

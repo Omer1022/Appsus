@@ -1,13 +1,9 @@
-import { noteService } from "../../services/note-service.js"
-
-
 export default {
  template: `
  <form  action="">
  <input type="text" v-model= "info.title">
 <textarea cols="30" rows="10" v-model="info.txt" placeHolder="take a note..."></textarea>
 <button @click = "createdTxt(info)">add</button>
-<!-- <p>the new note: {{txt}}</p> -->
  </form>
 `,
 data() {
@@ -16,7 +12,7 @@ return {
         title: '',
         txt: ''
     }
-};
+}  
 },
 created() {
     
@@ -24,7 +20,7 @@ created() {
 methods: { 
     createdTxt(info){
         if (!this.info.title.length && !this.info.txt.length) return
-        this.$emit("newNote", this.info, 'note-txt');
+        this.$emit("newNote", this.info, 'note-txt')  
      
     }
 },

@@ -1,4 +1,3 @@
-// import todoItemInput from "./todo-item-input.cmp.js";
 export default {
     template: `
     <form action="">
@@ -14,29 +13,21 @@ export default {
                 label: '',
                 todosStr: ''
             }
-        };
+        } 
     },
     created() {
 
     },
     components: {
-        // todoItemInput
+
     },
     methods: {
         createdTodo() {
             if (!this.info.label.length && !this.info.todosStr.length) return
-            console.log('this.info', this.info)
-            this.$emit("newNote", this.info, 'note-todos');
-            // console.log('adding a new todo')
+            this.$emit("newNote", this.info, 'note-todos')  
+          
         },
-        // addLine(){
-        //     console.log('add line');
-        // },
-        // addTodo(task){
-            
-        //     this.info.todos.push(task)
-            
-        //  }
+    
     },
     computed: {},
     unmounted() { },

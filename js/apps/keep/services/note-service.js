@@ -82,7 +82,7 @@ function _createNotes() {
                 isPinned: true,
                 info: {
                     url: "https://images.unsplash.com/photo-1656308918259-8ce8f38f0442?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=381&q=80",
-                    title: "beacon pancacks"
+                    title: "beacon pancakes"
                 },
                 style: {
                     backgroundColor: "#00d"
@@ -94,7 +94,7 @@ function _createNotes() {
                 info: {
                     label: "Get my stuff together",
                     todos: [
-                        { txt: "Driving liscence", doneAt: null, id: '676r5' },
+                        { txt: "Driving license", doneAt: null, id: '676r5' },
                         { txt: "Coding power", doneAt: 187111111, id: '676r6' }
                     ]
                 }
@@ -106,8 +106,9 @@ function _createNotes() {
                     label: "wedding stuff",
                     todos: [
                         { txt: "buy tux", doneAt: null, id: '48jy8' },
-                        { txt: "sign caitering contract", doneAt: null, id: '48js8' },
-                        { txt: "get cocaine", doneAt: 187111111, id: '48ra8' }
+                        { txt: "sign catering contract", doneAt: null, id: '48js8' },
+                        { txt: "get alcohol", doneAt: 187111111, id: '48ra8' },
+                        { txt: "send invites", doneAt: 187111111, id: '48ra8' }
                     ]
                 }
             },
