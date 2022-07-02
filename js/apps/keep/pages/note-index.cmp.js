@@ -3,6 +3,7 @@ import noteList from "../cmps/note-list.cmp.js";
 import noteDetails from "../pages/note-details.cmp.js";
 import noteFilter from "../cmps/note-filter.cmp.js";
 import noteAdd from "../cmps/add/note-add.cmp.js";
+import { utilService } from "../services/util-service.js";
 
 
 export default {
@@ -74,7 +75,8 @@ export default {
           let todoObj = tasksTxt.map(txt => {
             return {
               txt: txt,
-              doneAt: null
+              doneAt: null,
+              id: utilService.makeId()
             }
           })
           console.log('todoObj', todoObj)

@@ -93,8 +93,8 @@ function _createNotes() {
                 info: {
                     label: "Get my stuff together",
                     todos: [
-                        { txt: "Driving liscence", doneAt: null },
-                        { txt: "Coding power", doneAt: 187111111 }
+                        { txt: "Driving liscence", doneAt: null, id: '676r5' },
+                        { txt: "Coding power", doneAt: 187111111, id: '676r6' }
                     ]
                 }
             },
@@ -104,9 +104,9 @@ function _createNotes() {
                 info: {
                     label: "wedding stuff",
                     todos: [
-                        { txt: "buy tux", doneAt: null },
-                        { txt: "sign caitering contract", doneAt: null },
-                        { txt: "get cocaine", doneAt: 187111111 }
+                        { txt: "buy tux", doneAt: null, id: '48jy8' },
+                        { txt: "sign caitering contract", doneAt: null, id: '48js8' },
+                        { txt: "get cocaine", doneAt: 187111111, id: '48ra8' }
                     ]
                 }
             },
