@@ -5,7 +5,7 @@ export default {
   props: ["email"],
   template: `
       <ul>
-    <div class="mail-preview" style="{ font-weight: bold }">
+    <div class="mail-preview">
         <li><input type="checkbox" /></li>
         <router-link :to="'/email/'+email.id">
         <bold-text :text="email.from"></bold-text>
