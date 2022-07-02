@@ -8,7 +8,7 @@ import { utilService } from "../services/util-service.js";
 
 export default {
   template: `
-  <div class = "screen" :class="{selectedNote:selectedNote}" @click="selectedNote = null"></div>
+  <div class = "screen" :class="{selectedNote:selectedNote}" @click="onClose "></div>
   <section class="note-app">
  
     <note-add  @newNote ="createNewNote"/>
@@ -91,8 +91,12 @@ export default {
       this.notes.push(newNote)
     },
     onClose(note){
+      console.log('fuck yeah')
       this.selectedNote = null
-      console.log('the note i just closed:', note)
+      noteService.save(note) 
+    },
+    removedTask(){
+      console.log('never hae I ever')
     }
 
 

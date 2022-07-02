@@ -20,11 +20,11 @@ created() {
 },
 methods: { 
     createdTxt(info){
-        console.log('info.title.length', this.info.title.length)
+        // console.log('info.title.length', this.info.title.length)
         
         if (!this.info.title.length && !this.info.url.length) return
-        console.log("img add clicked");
-        console.log('this.info', this.info)
+        // console.log("img add clicked");
+        // console.log('this.info', this.info)
         
         this.$emit("newNote", this.info, 'note-img');
     }
