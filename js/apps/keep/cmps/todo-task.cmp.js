@@ -1,14 +1,19 @@
 export default {
 props:["todo"],
  template: `
- <div :class= "{isDone: lineThrough}" @click.stop="lineThrough = !lineThrough">{{todo.txt}} <span class="doneAT">{{todo.doneAt}}</span></div>
+ <div :class= "{isDone: todoTask.lineThrough}" @click.stop="todoTask.lineThrough = !todoTask.lineThrough">{{todoTask.txt}} <span class="doneAT">{{todoTask.doneAt}}</span></div>
 `,
 data() {
 return {
+   todoTask: {
     lineThrough: false
+   }
 };
 },
-created() {},
+created() {
+    this.todoTask = this.$props.todo
+    console.log('this.todoTask',this.todoTask)
+},
 methods: {
 
 },
