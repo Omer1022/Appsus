@@ -159,6 +159,6 @@ p {
 
 /* EMAIL SORT */
 
-.sort {
-  margin-left: 660px;
+.email-sort {
+  text-align: center;
 }
