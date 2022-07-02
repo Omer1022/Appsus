@@ -1,19 +1,12 @@
 export default {
-  props: ["text"],
+  props: ["text", "isRead"],
   template: `
-      <li><span @click="toggleIsRead" :style="readStyle">{{formatedText}}</span></li>
+      <li><span :style="readStyle">{{formatedText}}</span></li>
   `,
   data() {
-    return {
-      isRead: false,
-    };
+    return {};
   },
-  methods: {
-    toggleIsRead() {
-      this.isRead = !this.isRead;
-      console.log(this.isRead);
-    },
-  },
+  methods: {},
   computed: {
     formatedText() {
       return this.text;

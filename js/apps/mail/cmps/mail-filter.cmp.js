@@ -1,11 +1,16 @@
+import { emailsArray, mailService } from "../services/mail-service.js";
+
 export default {
   props: ["emails"],
   template: `
      <section class="email-filter">
      🔍<input type="text" v-model="filterBy.subject" @input="filter" placeholder="Search mail">
-     <button class="sort" @click="sort()">Sort</button>
+     <button class="sort" @click="sort">Sort</button>
      </section>
     `,
+  components: {
+    mailService,
+  },
   data() {
     return {
       oldestFirst: false,
@@ -13,7 +18,7 @@ export default {
         subject: "",
       },
       sortBy: {
-        sentAt: "",
+        sortedEmails: "",
       },
     };
   },
@@ -22,14 +27,8 @@ export default {
       this.$emit("filtered", this.filterBy);
     },
     sort() {
-      this.$emit("sort", this.sortBy);
+      this.$emit("sortEmails");
     },
   },
-  computed: {
-    sortedEmails: function () {
-      return this.emails.sort(
-        (a, b) => new Date(a.sentAt) - new Date(b.sentAt)
-      );
-    },
-  },
+  computed: {},
 };

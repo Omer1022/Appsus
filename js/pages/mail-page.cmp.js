@@ -1,4 +1,7 @@
-import { mailService } from "../apps/mail/services/mail-service.js";
+import {
+  emailsArray,
+  mailService,
+} from "../apps/mail/services/mail-service.js";
 import mailFilter from "../apps/mail/cmps/mail-filter.cmp.js";
 import mailList from "../apps/mail/cmps/mail-list.cmp.js";
 
@@ -13,7 +16,7 @@ export default {
           <a href="#">🗑️ Trash</a>
   </div>
     <section class="mail-page">
-      <mail-filter @filtered="filterMail" @sort="sortMail"/>
+      <mail-filter @filtered="filterMail" @sortEmails="sortMail"/>
       <mail-list @removed="removeEmail" :emails="mailsToShow"/>
       <div v-if="isModalOpen" class="show-modal">
       <h1 class="modal-header">New Message</h1>
@@ -31,10 +34,10 @@ export default {
   },
   data() {
     return {
-      emails: null,
+      emails: emailsArray,
       filterBy: null,
       isModalOpen: false,
-      sortBy: null,
+      newestOrder: true,
     };
   },
   created() {
@@ -44,9 +47,20 @@ export default {
     filterMail(filterBy) {
       this.filterBy = filterBy;
     },
-    sortMail(sortBy) {
-      console.log(sortBy);
-      this.sortBy = sortBy;
+    sortMail() {
+      let orderedEmails;
+      if (this.newestOrder) {
+        orderedEmails = this.emails.sort(
+          (a, b) => new Date(a.sentAt) - new Date(b.sentAt)
+        );
+        this.newestOrder = !this.newestOrder;
+      } else {
+        orderedEmails = this.emails.sort(
+          (a, b) => new Date(b.sentAt) - new Date(a.sentAt)
+        );
+        this.newestOrder = !this.newestOrder;
+      }
+      this.emails = orderedEmails;
     },
     removeEmail(emailId) {
       mailService.remove(emailId);
@@ -80,6 +94,7 @@ export default {
       });
     },
     mailsToShow() {
+      //console.log(this.emails);
       if (!this.filterBy) return this.emails;
       const regex = new RegExp(this.filterBy.subject, "i");
       return this.emails.filter((email) => regex.test(email.subject));

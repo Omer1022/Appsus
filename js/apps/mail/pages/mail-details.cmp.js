@@ -1,4 +1,5 @@
 import { mailService } from "../services/mail-service.js";
+import mailPreview from "../cmps/mail-preview.cmp.js";
 
 export default {
   template: `
@@ -12,11 +13,18 @@ export default {
   </div>
       <section v-if="email" class="email-details app-main">
           <h1>{{email.subject}}</h1>
-          <h2>{{email.from}}</h2> 
-          <h4>{{email.to}}</h4>
+          <h2>{{email.sentAt}} , {{email.time}}</h2>
+          <h3>From: {{email.from}}</h3> 
+          <h4>To: {{email.to}}</h4>
           <p>{{email.body}}</p>
+          <div class="actions">
+                <button class="remove-mail" @click="remove(email.id)"></button>
+                </div>
       </section>
   `,
+  components: {
+    mailPreview,
+  },
   data() {
     return {
       email: null,
@@ -26,6 +34,10 @@ export default {
     const id = this.$route.params.emailId;
     mailService.get(id).then((email) => (this.email = email));
   },
-  methods: {},
+  methods: {
+    remove(emailId) {
+      this.$emit("removed", emailId);
+    },
+  },
   computed: {},
 };
