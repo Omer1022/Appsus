@@ -14,7 +14,7 @@ export default {
         <long-text :text="email.body"></long-text>
         <li class="sentAt">{{email.sentAt}}</li>
     </router-link>
-  </div>
+    </div>
 </ul>
       `,
   components: {

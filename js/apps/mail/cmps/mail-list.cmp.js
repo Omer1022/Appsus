@@ -9,7 +9,7 @@ export default {
             @click="select(email)">
             <div class="actions">
                 <button class="remove-mail" @click="remove(email.id)"></button>
-                </div>
+            </div>
                 <mail-preview :email="email"/>
             </li>
         </ul>
