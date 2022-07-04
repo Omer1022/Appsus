@@ -5,7 +5,7 @@ export default {
   template: `
      <section class="email-filter">
      🔍<input type="text" v-model="filterBy.subject" @input="filter" placeholder="Search mail">
-     <button class="sort" @click="sort">Sort</button>
+     <button class="sort" @click="sort">Sort By Date</button>
      </section>
     `,
   components: {
